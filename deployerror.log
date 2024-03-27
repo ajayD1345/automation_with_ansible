@@ -1,0 +1,775 @@
+E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+./deploy.sh: line 26: add-apt-repository: command not found
+sudo: yum: command not found
+sudo: yum: command not found
+sudo: yum: command not found
+Failed to start apache2.service: Access denied
+See system logs and 'systemctl status apache2.service' for details.
+Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable apache2
+Failed to reload daemon: Access denied
+Failed to reload daemon: Access denied
+Failed to enable unit: Access denied
+Failed to enable unit: Unit file httpd.service does not exist.
+Failed to start httpd.service: Unit httpd.service not found.
+E: Unable to locate package php8.2
+E: Couldn't find any package by glob 'php8.2'
+E: Couldn't find any package by regex 'php8.2'
+E: Unable to locate package libapache2-mod-php8.2
+E: Couldn't find any package by glob 'libapache2-mod-php8.2'
+E: Couldn't find any package by regex 'libapache2-mod-php8.2'
+E: Unable to locate package php8.2-common
+E: Couldn't find any package by glob 'php8.2-common'
+E: Couldn't find any package by regex 'php8.2-common'
+E: Unable to locate package php8.2-mysql
+E: Couldn't find any package by glob 'php8.2-mysql'
+E: Couldn't find any package by regex 'php8.2-mysql'
+E: Unable to locate package php8.2-gmp
+E: Couldn't find any package by glob 'php8.2-gmp'
+E: Couldn't find any package by regex 'php8.2-gmp'
+E: Unable to locate package php8.2-curl
+E: Couldn't find any package by glob 'php8.2-curl'
+E: Couldn't find any package by regex 'php8.2-curl'
+E: Unable to locate package php8.2-intl
+E: Couldn't find any package by glob 'php8.2-intl'
+E: Couldn't find any package by regex 'php8.2-intl'
+E: Unable to locate package php8.2-mbstring
+E: Couldn't find any package by glob 'php8.2-mbstring'
+E: Couldn't find any package by regex 'php8.2-mbstring'
+E: Unable to locate package php8.2-xmlrpc
+E: Couldn't find any package by glob 'php8.2-xmlrpc'
+E: Couldn't find any package by regex 'php8.2-xmlrpc'
+E: Unable to locate package php8.2-gd
+E: Couldn't find any package by glob 'php8.2-gd'
+E: Couldn't find any package by regex 'php8.2-gd'
+E: Unable to locate package php8.2-xml
+E: Couldn't find any package by glob 'php8.2-xml'
+E: Couldn't find any package by regex 'php8.2-xml'
+E: Unable to locate package php8.2-cli
+E: Couldn't find any package by glob 'php8.2-cli'
+E: Couldn't find any package by regex 'php8.2-cli'
+E: Unable to locate package php8.2-zip
+E: Couldn't find any package by glob 'php8.2-zip'
+E: Couldn't find any package by regex 'php8.2-zip'
+E: Unable to locate package php8.2-tokenizer
+E: Couldn't find any package by glob 'php8.2-tokenizer'
+E: Couldn't find any package by regex 'php8.2-tokenizer'
+E: Unable to locate package php8.2-bcmath
+E: Couldn't find any package by glob 'php8.2-bcmath'
+E: Couldn't find any package by regex 'php8.2-bcmath'
+E: Unable to locate package php8.2-soap
+E: Couldn't find any package by glob 'php8.2-soap'
+E: Couldn't find any package by regex 'php8.2-soap'
+E: Unable to locate package php8.2-imap
+E: Couldn't find any package by glob 'php8.2-imap'
+E: Couldn't find any package by regex 'php8.2-imap'
+sudo: yum: command not found
+sed: can't read /etc/php/8.2/apache2/php.ini: No such file or directory
+sed: can't read /etc/php.ini: No such file or directory
+Failed to restart httpd.service: Unit httpd.service not found.
+debconf: DbDriver "passwords" warning: could not open /var/cache/debconf/passwords.dat: Permission denied
+debconf: DbDriver "passwords" warning: could not write /var/cache/debconf/passwords.dat-new: Permission denied
+debconf: DbDriver "passwords" warning: /var/cache/debconf/passwords.dat-new is locked by another process: Bad file descriptor
+debconf: DbDriver "passwords" warning: could not write /var/cache/debconf/passwords.dat-new: Bad file descriptor
+debconf: DbDriver "passwords" warning: could not flush /var/cache/debconf/passwords.dat-new: Invalid argument
+debconf: DbDriver "passwords" warning: could not sync /var/cache/debconf/passwords.dat-new: Invalid argument
+debconf: DbDriver "passwords" warning: rename failed: No such file or directory
+debconf: DbDriver "templatedb": could not write /var/cache/debconf/templates.dat-new: Permission denied
+debconf: DbDriver "passwords" warning: could not open /var/cache/debconf/passwords.dat: Permission denied
+debconf: DbDriver "passwords" warning: could not write /var/cache/debconf/passwords.dat-new: Permission denied
+debconf: DbDriver "passwords" warning: /var/cache/debconf/passwords.dat-new is locked by another process: Bad file descriptor
+debconf: DbDriver "passwords" warning: could not write /var/cache/debconf/passwords.dat-new: Bad file descriptor
+debconf: DbDriver "passwords" warning: could not flush /var/cache/debconf/passwords.dat-new: Invalid argument
+debconf: DbDriver "passwords" warning: could not sync /var/cache/debconf/passwords.dat-new: Invalid argument
+debconf: DbDriver "passwords" warning: rename failed: No such file or directory
+debconf: DbDriver "templatedb": could not write /var/cache/debconf/templates.dat-new: Permission denied
+E: Package 'mysql-server' has no installation candidate
+sudo: yum: command not found
+sed: can't read /etc/mysql/mysql.conf.d/mysqld.cnf: No such file or directory
+sed: can't read /etc/my.cnf: No such file or directory
+./deploy.sh: line 93: mysql: command not found
+Failed to restart apache2.service: Access denied
+See system logs and 'systemctl status apache2.service' for details.
+./deploy.sh: line 101: syntax error near unexpected token `else'
+./deploy.sh: line 101: `else'
+E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+./deploy.sh: line 26: add-apt-repository: command not found
+sudo: yum: command not found
+sudo: yum: command not found
+sudo: yum: command not found
+Failed to start apache2.service: Access denied
+See system logs and 'systemctl status apache2.service' for details.
+Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable apache2
+Failed to reload daemon: Access denied
+Failed to reload daemon: Access denied
+Failed to enable unit: Access denied
+Failed to enable unit: Unit file httpd.service does not exist.
+Failed to start httpd.service: Unit httpd.service not found.
+E: Unable to locate package php8.2
+E: Couldn't find any package by glob 'php8.2'
+E: Couldn't find any package by regex 'php8.2'
+E: Unable to locate package libapache2-mod-php8.2
+E: Couldn't find any package by glob 'libapache2-mod-php8.2'
+E: Couldn't find any package by regex 'libapache2-mod-php8.2'
+E: Unable to locate package php8.2-common
+E: Couldn't find any package by glob 'php8.2-common'
+E: Couldn't find any package by regex 'php8.2-common'
+E: Unable to locate package php8.2-mysql
+E: Couldn't find any package by glob 'php8.2-mysql'
+E: Couldn't find any package by regex 'php8.2-mysql'
+E: Unable to locate package php8.2-gmp
+E: Couldn't find any package by glob 'php8.2-gmp'
+E: Couldn't find any package by regex 'php8.2-gmp'
+E: Unable to locate package php8.2-curl
+E: Couldn't find any package by glob 'php8.2-curl'
+E: Couldn't find any package by regex 'php8.2-curl'
+E: Unable to locate package php8.2-intl
+E: Couldn't find any package by glob 'php8.2-intl'
+E: Couldn't find any package by regex 'php8.2-intl'
+E: Unable to locate package php8.2-mbstring
+E: Couldn't find any package by glob 'php8.2-mbstring'
+E: Couldn't find any package by regex 'php8.2-mbstring'
+E: Unable to locate package php8.2-xmlrpc
+E: Couldn't find any package by glob 'php8.2-xmlrpc'
+E: Couldn't find any package by regex 'php8.2-xmlrpc'
+E: Unable to locate package php8.2-gd
+E: Couldn't find any package by glob 'php8.2-gd'
+E: Couldn't find any package by regex 'php8.2-gd'
+E: Unable to locate package php8.2-xml
+E: Couldn't find any package by glob 'php8.2-xml'
+E: Couldn't find any package by regex 'php8.2-xml'
+E: Unable to locate package php8.2-cli
+E: Couldn't find any package by glob 'php8.2-cli'
+E: Couldn't find any package by regex 'php8.2-cli'
+E: Unable to locate package php8.2-zip
+E: Couldn't find any package by glob 'php8.2-zip'
+E: Couldn't find any package by regex 'php8.2-zip'
+E: Unable to locate package php8.2-tokenizer
+E: Couldn't find any package by glob 'php8.2-tokenizer'
+E: Couldn't find any package by regex 'php8.2-tokenizer'
+E: Unable to locate package php8.2-bcmath
+E: Couldn't find any package by glob 'php8.2-bcmath'
+E: Couldn't find any package by regex 'php8.2-bcmath'
+E: Unable to locate package php8.2-soap
+E: Couldn't find any package by glob 'php8.2-soap'
+E: Couldn't find any package by regex 'php8.2-soap'
+E: Unable to locate package php8.2-imap
+E: Couldn't find any package by glob 'php8.2-imap'
+E: Couldn't find any package by regex 'php8.2-imap'
+sudo: yum: command not found
+sed: can't read /etc/php/8.2/apache2/php.ini: No such file or directory
+sed: can't read /etc/php.ini: No such file or directory
+Failed to restart httpd.service: Unit httpd.service not found.
+debconf: DbDriver "passwords" warning: could not open /var/cache/debconf/passwords.dat: Permission denied
+debconf: DbDriver "passwords" warning: could not write /var/cache/debconf/passwords.dat-new: Permission denied
+debconf: DbDriver "passwords" warning: /var/cache/debconf/passwords.dat-new is locked by another process: Bad file descriptor
+debconf: DbDriver "passwords" warning: could not write /var/cache/debconf/passwords.dat-new: Bad file descriptor
+debconf: DbDriver "passwords" warning: could not flush /var/cache/debconf/passwords.dat-new: Invalid argument
+debconf: DbDriver "passwords" warning: could not sync /var/cache/debconf/passwords.dat-new: Invalid argument
+debconf: DbDriver "passwords" warning: rename failed: No such file or directory
+debconf: DbDriver "templatedb": could not write /var/cache/debconf/templates.dat-new: Permission denied
+debconf: DbDriver "passwords" warning: could not open /var/cache/debconf/passwords.dat: Permission denied
+debconf: DbDriver "passwords" warning: could not write /var/cache/debconf/passwords.dat-new: Permission denied
+debconf: DbDriver "passwords" warning: /var/cache/debconf/passwords.dat-new is locked by another process: Bad file descriptor
+debconf: DbDriver "passwords" warning: could not write /var/cache/debconf/passwords.dat-new: Bad file descriptor
+debconf: DbDriver "passwords" warning: could not flush /var/cache/debconf/passwords.dat-new: Invalid argument
+debconf: DbDriver "passwords" warning: could not sync /var/cache/debconf/passwords.dat-new: Invalid argument
+debconf: DbDriver "passwords" warning: rename failed: No such file or directory
+debconf: DbDriver "templatedb": could not write /var/cache/debconf/templates.dat-new: Permission denied
+E: Package 'mysql-server' has no installation candidate
+sudo: yum: command not found
+sed: can't read /etc/mysql/mysql.conf.d/mysqld.cnf: No such file or directory
+sed: can't read /etc/my.cnf: No such file or directory
+./deploy.sh: line 93: mysql: command not found
+Failed to restart apache2.service: Access denied
+See system logs and 'systemctl status apache2.service' for details.
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/threading.py", line 954, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.9/threading.py", line 892, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3/dist-packages/softwareproperties/SoftwareProperties.py", line 688, in addkey_func
+    func(**kwargs)
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 386, in add_key
+    return apsk.add_ppa_signing_key()
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 251, in add_ppa_signing_key
+    if not self._recv_key(
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 176, in _recv_key
+    res = subprocess.call(self.GPG_DEFAULT_OPTIONS + [
+  File "/usr/lib/python3.9/subprocess.py", line 349, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "/usr/lib/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.9/subprocess.py", line 1823, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'gpg'
+E: The repository 'http://ppa.launchpad.net/ondrej/php/ubuntu noble Release' does not have a Release file.
+sudo: yum: command not found
+sudo: yum: command not found
+sudo: yum: command not found
+Failed to start apache2.service: Connection timed out
+See system logs and 'systemctl status apache2.service' for details.
+Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable apache2
+Failed to reload daemon: Access denied
+Failed to reload daemon: Method call timed out
+Failed to enable unit: Connection timed out
+Failed to enable unit: Unit file httpd.service does not exist.
+Failed to start httpd.service: Unit httpd.service not found.
+E: Unable to locate package php8.2
+E: Couldn't find any package by glob 'php8.2'
+E: Couldn't find any package by regex 'php8.2'
+E: Unable to locate package libapache2-mod-php8.2
+E: Couldn't find any package by glob 'libapache2-mod-php8.2'
+E: Couldn't find any package by regex 'libapache2-mod-php8.2'
+E: Unable to locate package php8.2-common
+E: Couldn't find any package by glob 'php8.2-common'
+E: Couldn't find any package by regex 'php8.2-common'
+E: Unable to locate package php8.2-mysql
+E: Couldn't find any package by glob 'php8.2-mysql'
+E: Couldn't find any package by regex 'php8.2-mysql'
+E: Unable to locate package php8.2-gmp
+E: Couldn't find any package by glob 'php8.2-gmp'
+E: Couldn't find any package by regex 'php8.2-gmp'
+E: Unable to locate package php8.2-curl
+E: Couldn't find any package by glob 'php8.2-curl'
+E: Couldn't find any package by regex 'php8.2-curl'
+E: Unable to locate package php8.2-intl
+E: Couldn't find any package by glob 'php8.2-intl'
+E: Couldn't find any package by regex 'php8.2-intl'
+E: Unable to locate package php8.2-mbstring
+E: Couldn't find any package by glob 'php8.2-mbstring'
+E: Couldn't find any package by regex 'php8.2-mbstring'
+E: Unable to locate package php8.2-xmlrpc
+E: Couldn't find any package by glob 'php8.2-xmlrpc'
+E: Couldn't find any package by regex 'php8.2-xmlrpc'
+E: Unable to locate package php8.2-gd
+E: Couldn't find any package by glob 'php8.2-gd'
+E: Couldn't find any package by regex 'php8.2-gd'
+E: Unable to locate package php8.2-xml
+E: Couldn't find any package by glob 'php8.2-xml'
+E: Couldn't find any package by regex 'php8.2-xml'
+E: Unable to locate package php8.2-cli
+E: Couldn't find any package by glob 'php8.2-cli'
+E: Couldn't find any package by regex 'php8.2-cli'
+E: Unable to locate package php8.2-zip
+E: Couldn't find any package by glob 'php8.2-zip'
+E: Couldn't find any package by regex 'php8.2-zip'
+E: Unable to locate package php8.2-tokenizer
+E: Couldn't find any package by glob 'php8.2-tokenizer'
+E: Couldn't find any package by regex 'php8.2-tokenizer'
+E: Unable to locate package php8.2-bcmath
+E: Couldn't find any package by glob 'php8.2-bcmath'
+E: Couldn't find any package by regex 'php8.2-bcmath'
+E: Unable to locate package php8.2-soap
+E: Couldn't find any package by glob 'php8.2-soap'
+E: Couldn't find any package by regex 'php8.2-soap'
+E: Unable to locate package php8.2-imap
+E: Couldn't find any package by glob 'php8.2-imap'
+E: Couldn't find any package by regex 'php8.2-imap'
+sudo: yum: command not found
+sed: can't read /etc/php/8.2/apache2/php.ini: No such file or directory
+sed: can't read /etc/php.ini: No such file or directory
+Failed to restart httpd.service: Unit httpd.service not found.
+usage: sudo -h | -K | -k | -V
+usage: sudo -v [-AknS] [-g group] [-h host] [-p prompt] [-u user]
+usage: sudo -l [-AknS] [-g group] [-h host] [-p prompt] [-U user] [-u user]
+            [command]
+usage: sudo [-AbEHknPS] [-r role] [-t type] [-C num] [-D directory] [-g group]
+            [-h host] [-p prompt] [-R directory] [-T timeout] [-u user]
+            [VAR=value] [-i|-s] [<command>]
+usage: sudo -e [-AknS] [-r role] [-t type] [-C num] [-D directory] [-g group]
+            [-h host] [-p prompt] [-R directory] [-T timeout] [-u user] file ...
+debconf: DbDriver "passwords" warning: could not open /var/cache/debconf/passwords.dat: Permission denied
+debconf: DbDriver "passwords" warning: could not write /var/cache/debconf/passwords.dat-new: Permission denied
+debconf: DbDriver "passwords" warning: /var/cache/debconf/passwords.dat-new is locked by another process: Bad file descriptor
+debconf: DbDriver "passwords" warning: could not write /var/cache/debconf/passwords.dat-new: Bad file descriptor
+debconf: DbDriver "passwords" warning: could not flush /var/cache/debconf/passwords.dat-new: Invalid argument
+debconf: DbDriver "passwords" warning: could not sync /var/cache/debconf/passwords.dat-new: Invalid argument
+debconf: DbDriver "passwords" warning: rename failed: No such file or directory
+debconf: DbDriver "templatedb": could not write /var/cache/debconf/templates.dat-new: Permission denied
+debconf: DbDriver "passwords" warning: could not open /var/cache/debconf/passwords.dat: Permission denied
+debconf: DbDriver "passwords" warning: could not write /var/cache/debconf/passwords.dat-new: Permission denied
+debconf: DbDriver "passwords" warning: /var/cache/debconf/passwords.dat-new is locked by another process: Bad file descriptor
+debconf: DbDriver "passwords" warning: could not write /var/cache/debconf/passwords.dat-new: Bad file descriptor
+debconf: DbDriver "passwords" warning: could not flush /var/cache/debconf/passwords.dat-new: Invalid argument
+debconf: DbDriver "passwords" warning: could not sync /var/cache/debconf/passwords.dat-new: Invalid argument
+debconf: DbDriver "passwords" warning: rename failed: No such file or directory
+debconf: DbDriver "templatedb": could not write /var/cache/debconf/templates.dat-new: Permission denied
+E: Package 'mysql-server' has no installation candidate
+sudo: yum: command not found
+sed: can't read /etc/mysql/mysql.conf.d/mysqld.cnf: No such file or directory
+sed: can't read /etc/my.cnf: No such file or directory
+sudo: mysql: command not found
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/threading.py", line 954, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.9/threading.py", line 892, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3/dist-packages/softwareproperties/SoftwareProperties.py", line 688, in addkey_func
+    func(**kwargs)
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 386, in add_key
+    return apsk.add_ppa_signing_key()
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 251, in add_ppa_signing_key
+    if not self._recv_key(
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 176, in _recv_key
+    res = subprocess.call(self.GPG_DEFAULT_OPTIONS + [
+  File "/usr/lib/python3.9/subprocess.py", line 349, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "/usr/lib/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.9/subprocess.py", line 1823, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'gpg'
+E: The repository 'http://ppa.launchpad.net/ondrej/php/ubuntu noble Release' does not have a Release file.
+sudo: yum: command not found
+sudo: yum: command not found
+sudo: yum: command not found
+Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable apache2
+Failed to enable unit: Unit file httpd.service does not exist.
+Failed to start httpd.service: Unit httpd.service not found.
+E: Unable to locate package php8.2
+E: Couldn't find any package by glob 'php8.2'
+E: Couldn't find any package by regex 'php8.2'
+E: Unable to locate package libapache2-mod-php8.2
+E: Couldn't find any package by glob 'libapache2-mod-php8.2'
+E: Couldn't find any package by regex 'libapache2-mod-php8.2'
+E: Unable to locate package php8.2-common
+E: Couldn't find any package by glob 'php8.2-common'
+E: Couldn't find any package by regex 'php8.2-common'
+E: Unable to locate package php8.2-mysql
+E: Couldn't find any package by glob 'php8.2-mysql'
+E: Couldn't find any package by regex 'php8.2-mysql'
+E: Unable to locate package php8.2-gmp
+E: Couldn't find any package by glob 'php8.2-gmp'
+E: Couldn't find any package by regex 'php8.2-gmp'
+E: Unable to locate package php8.2-curl
+E: Couldn't find any package by glob 'php8.2-curl'
+E: Couldn't find any package by regex 'php8.2-curl'
+E: Unable to locate package php8.2-intl
+E: Couldn't find any package by glob 'php8.2-intl'
+E: Couldn't find any package by regex 'php8.2-intl'
+E: Unable to locate package php8.2-mbstring
+E: Couldn't find any package by glob 'php8.2-mbstring'
+E: Couldn't find any package by regex 'php8.2-mbstring'
+E: Unable to locate package php8.2-xmlrpc
+E: Couldn't find any package by glob 'php8.2-xmlrpc'
+E: Couldn't find any package by regex 'php8.2-xmlrpc'
+E: Unable to locate package php8.2-gd
+E: Couldn't find any package by glob 'php8.2-gd'
+E: Couldn't find any package by regex 'php8.2-gd'
+E: Unable to locate package php8.2-xml
+E: Couldn't find any package by glob 'php8.2-xml'
+E: Couldn't find any package by regex 'php8.2-xml'
+E: Unable to locate package php8.2-cli
+E: Couldn't find any package by glob 'php8.2-cli'
+E: Couldn't find any package by regex 'php8.2-cli'
+E: Unable to locate package php8.2-zip
+E: Couldn't find any package by glob 'php8.2-zip'
+E: Couldn't find any package by regex 'php8.2-zip'
+E: Unable to locate package php8.2-tokenizer
+E: Couldn't find any package by glob 'php8.2-tokenizer'
+E: Couldn't find any package by regex 'php8.2-tokenizer'
+E: Unable to locate package php8.2-bcmath
+E: Couldn't find any package by glob 'php8.2-bcmath'
+E: Couldn't find any package by regex 'php8.2-bcmath'
+E: Unable to locate package php8.2-soap
+E: Couldn't find any package by glob 'php8.2-soap'
+E: Couldn't find any package by regex 'php8.2-soap'
+E: Unable to locate package php8.2-imap
+E: Couldn't find any package by glob 'php8.2-imap'
+E: Couldn't find any package by regex 'php8.2-imap'
+sudo: yum: command not found
+sed: can't read /etc/php/8.2/apache2/php.ini: No such file or directory
+sed: can't read /etc/php.ini: No such file or directory
+Failed to restart httpd.service: Unit httpd.service not found.
+E: Package 'mysql-server' has no installation candidate
+sudo: yum: command not found
+sed: can't read /etc/mysql/mysql.conf.d/mysqld.cnf: No such file or directory
+sed: can't read /etc/my.cnf: No such file or directory
+sudo: mysql: command not found
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/threading.py", line 954, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.9/threading.py", line 892, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3/dist-packages/softwareproperties/SoftwareProperties.py", line 688, in addkey_func
+    func(**kwargs)
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 386, in add_key
+    return apsk.add_ppa_signing_key()
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 251, in add_ppa_signing_key
+    if not self._recv_key(
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 176, in _recv_key
+    res = subprocess.call(self.GPG_DEFAULT_OPTIONS + [
+  File "/usr/lib/python3.9/subprocess.py", line 349, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "/usr/lib/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.9/subprocess.py", line 1823, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'gpg'
+E: The repository 'http://ppa.launchpad.net/ondrej/php/ubuntu noble Release' does not have a Release file.
+Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable apache2
+./deploy.sh: line 168: syntax error near unexpected token `newline'
+./deploy.sh: line 168: `    sudo apt-get install -y php8.2 libapache2-mod-php8.2 php8.2-common php8.2-mysql php8.2-gmp php8.2-curl php8.2-intl php8.2-mbstring php>'
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/threading.py", line 954, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.9/threading.py", line 892, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3/dist-packages/softwareproperties/SoftwareProperties.py", line 688, in addkey_func
+    func(**kwargs)
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 386, in add_key
+    return apsk.add_ppa_signing_key()
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 251, in add_ppa_signing_key
+    if not self._recv_key(
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 176, in _recv_key
+    res = subprocess.call(self.GPG_DEFAULT_OPTIONS + [
+  File "/usr/lib/python3.9/subprocess.py", line 349, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "/usr/lib/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.9/subprocess.py", line 1823, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'gpg'
+E: The repository 'http://ppa.launchpad.net/ondrej/php/ubuntu noble Release' does not have a Release file.
+Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable apache2
+E: Unable to locate package php8.2
+E: Couldn't find any package by glob 'php8.2'
+E: Couldn't find any package by regex 'php8.2'
+E: Unable to locate package libapache2-mod-php8.2
+E: Couldn't find any package by glob 'libapache2-mod-php8.2'
+E: Couldn't find any package by regex 'libapache2-mod-php8.2'
+E: Unable to locate package php8.2-common
+E: Couldn't find any package by glob 'php8.2-common'
+E: Couldn't find any package by regex 'php8.2-common'
+E: Unable to locate package php8.2-mysql
+E: Couldn't find any package by glob 'php8.2-mysql'
+E: Couldn't find any package by regex 'php8.2-mysql'
+E: Unable to locate package php8.2-gmp
+E: Couldn't find any package by glob 'php8.2-gmp'
+E: Couldn't find any package by regex 'php8.2-gmp'
+E: Unable to locate package php8.2-curl
+E: Couldn't find any package by glob 'php8.2-curl'
+E: Couldn't find any package by regex 'php8.2-curl'
+E: Unable to locate package php8.2-intl
+E: Couldn't find any package by glob 'php8.2-intl'
+E: Couldn't find any package by regex 'php8.2-intl'
+E: Unable to locate package php8.2-mbstring
+E: Couldn't find any package by glob 'php8.2-mbstring'
+E: Couldn't find any package by regex 'php8.2-mbstring'
+E: Unable to locate package php8.2-xml
+E: Couldn't find any package by glob 'php8.2-xml'
+E: Couldn't find any package by regex 'php8.2-xml'
+gpg: keybox '/tmp/tmphu3stwye/pubring.gpg' created
+gpg: /tmp/tmphu3stwye/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+E: Package 'mysql-server' has no installation candidate
+sudo: mysql: command not found
+gpg: keybox '/tmp/tmpt03fos5p/pubring.gpg' created
+gpg: /tmp/tmpt03fos5p/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+E: The repository 'http://ppa.launchpad.net/ondrej/php/ubuntu noble Release' does not have a Release file.
+Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable apache2
+E: Unable to locate package php8.2
+E: Couldn't find any package by glob 'php8.2'
+E: Couldn't find any package by regex 'php8.2'
+E: Unable to locate package libapache2-mod-php8.2
+E: Couldn't find any package by glob 'libapache2-mod-php8.2'
+E: Couldn't find any package by regex 'libapache2-mod-php8.2'
+E: Unable to locate package php8.2-common
+E: Couldn't find any package by glob 'php8.2-common'
+E: Couldn't find any package by regex 'php8.2-common'
+E: Unable to locate package php8.2-mysql
+E: Couldn't find any package by glob 'php8.2-mysql'
+E: Couldn't find any package by regex 'php8.2-mysql'
+E: Unable to locate package php8.2-gmp
+E: Couldn't find any package by glob 'php8.2-gmp'
+E: Couldn't find any package by regex 'php8.2-gmp'
+E: Unable to locate package php8.2-curl
+E: Couldn't find any package by glob 'php8.2-curl'
+E: Couldn't find any package by regex 'php8.2-curl'
+E: Unable to locate package php8.2-intl
+E: Couldn't find any package by glob 'php8.2-intl'
+E: Couldn't find any package by regex 'php8.2-intl'
+E: Unable to locate package php8.2-mbstring
+E: Couldn't find any package by glob 'php8.2-mbstring'
+E: Couldn't find any package by regex 'php8.2-mbstring'
+E: Unable to locate package php8.2-xml
+E: Couldn't find any package by glob 'php8.2-xml'
+E: Couldn't find any package by regex 'php8.2-xml'
+gpg: keybox '/tmp/tmpi44xgskc/pubring.gpg' created
+gpg: /tmp/tmpi44xgskc/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+E: Package 'mysql-server' has no installation candidate
+sudo: mysql: command not found
+gpg: keybox '/tmp/tmpnrtq8f6o/pubring.gpg' created
+gpg: /tmp/tmpnrtq8f6o/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+E: The repository 'http://ppa.launchpad.net/ondrej/php/ubuntu noble Release' does not have a Release file.
+gpg: keybox '/tmp/tmpouxzkb7r/pubring.gpg' created
+gpg: /tmp/tmpouxzkb7r/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable apache2
+E: Unable to locate package php8.2
+E: Couldn't find any package by glob 'php8.2'
+E: Couldn't find any package by regex 'php8.2'
+E: Unable to locate package libapache2-mod-php8.2
+E: Couldn't find any package by glob 'libapache2-mod-php8.2'
+E: Couldn't find any package by regex 'libapache2-mod-php8.2'
+E: Unable to locate package php8.2-common
+E: Couldn't find any package by glob 'php8.2-common'
+E: Couldn't find any package by regex 'php8.2-common'
+E: Unable to locate package php8.2-mysql
+E: Couldn't find any package by glob 'php8.2-mysql'
+E: Couldn't find any package by regex 'php8.2-mysql'
+E: Unable to locate package php8.2-gmp
+E: Couldn't find any package by glob 'php8.2-gmp'
+E: Couldn't find any package by regex 'php8.2-gmp'
+E: Unable to locate package php8.2-curl
+E: Couldn't find any package by glob 'php8.2-curl'
+E: Couldn't find any package by regex 'php8.2-curl'
+E: Unable to locate package php8.2-intl
+E: Couldn't find any package by glob 'php8.2-intl'
+E: Couldn't find any package by regex 'php8.2-intl'
+E: Unable to locate package php8.2-mbstring
+E: Couldn't find any package by glob 'php8.2-mbstring'
+E: Couldn't find any package by regex 'php8.2-mbstring'
+E: Unable to locate package php8.2-xml
+E: Couldn't find any package by glob 'php8.2-xml'
+E: Couldn't find any package by regex 'php8.2-xml'
+E: Package 'mysql-server' has no installation candidate
+sudo: mysql: command not found
+gpg: keybox '/tmp/tmpi25uq0gq/pubring.gpg' created
+gpg: /tmp/tmpi25uq0gq/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/threading.py", line 954, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.9/threading.py", line 892, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3/dist-packages/softwareproperties/SoftwareProperties.py", line 688, in addkey_func
+    func(**kwargs)
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 386, in add_key
+    return apsk.add_ppa_signing_key()
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 273, in add_ppa_signing_key
+    cleanup(tmp_keyring_dir)
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 234, in cleanup
+    shutil.rmtree(tmp_keyring_dir)
+  File "/usr/lib/python3.9/shutil.py", line 718, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/usr/lib/python3.9/shutil.py", line 675, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/usr/lib/python3.9/shutil.py", line 673, in _rmtree_safe_fd
+    os.unlink(entry.name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'S.gpg-agent.extra'
+E: The repository 'http://ppa.launchpad.net/ondrej/php/ubuntu noble Release' does not have a Release file.
+Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable apache2
+gpg: keybox '/tmp/tmpcyqem9le/pubring.gpg' created
+gpg: /tmp/tmpcyqem9le/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+E: Package 'mysql-server' has no installation candidate
+sudo: mysql: command not found
+gpg: keybox '/tmp/tmpbf2v_y1l/pubring.gpg' created
+gpg: /tmp/tmpbf2v_y1l/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+E: The repository 'http://ppa.launchpad.net/ondrej/php/ubuntu noble Release' does not have a Release file.
+Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable apache2
+gpg: keybox '/tmp/tmpx8v1rs8k/pubring.gpg' created
+gpg: /tmp/tmpx8v1rs8k/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+E: Package 'mysql-server' has no installation candidate
+sudo: mysql: command not found
+gpg: keybox '/tmp/tmpq2_woy3z/pubring.gpg' created
+gpg: /tmp/tmpq2_woy3z/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+E: The repository 'http://ppa.launchpad.net/ondrej/php/ubuntu noble Release' does not have a Release file.
+Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable apache2
+gpg: keybox '/tmp/tmpsh1_6nrq/pubring.gpg' created
+gpg: /tmp/tmpsh1_6nrq/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+E: Package 'mysql-server' has no installation candidate
+sudo: mysql: command not found
+gpg: keybox '/tmp/tmpcda7zk_s/pubring.gpg' created
+gpg: /tmp/tmpcda7zk_s/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+E: The repository 'http://ppa.launchpad.net/ondrej/php/ubuntu noble Release' does not have a Release file.
+Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable apache2
+gpg: keybox '/tmp/tmpt_ld7nrj/pubring.gpg' created
+gpg: /tmp/tmpt_ld7nrj/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+gpg: keybox '/tmp/tmpq6qku45o/pubring.gpg' created
+gpg: /tmp/tmpq6qku45o/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+E: The repository 'http://ppa.launchpad.net/ondrej/php/ubuntu noble Release' does not have a Release file.
+Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable apache2
+gpg: keybox '/tmp/tmpg7kqqwq_/pubring.gpg' created
+gpg: /tmp/tmpg7kqqwq_/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+./deploy.sh: line 234: /etc/apache2/sites-available/laravel.conf: Permission denied
+./deploy.sh: line 253: a2dissite: command not found
+./deploy.sh: line 257: a2enmod: command not found
+./deploy.sh: line 258: a2ensite: command not found
+./deploy.sh: line 262: a2enmod: command not found
+gpg: keybox '/tmp/tmp84ijulp3/pubring.gpg' created
+gpg: /tmp/tmp84ijulp3/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+E: The repository 'http://ppa.launchpad.net/ondrej/php/ubuntu noble Release' does not have a Release file.
+Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable apache2
+gpg: keybox '/tmp/tmpdqvlkqv_/pubring.gpg' created
+gpg: /tmp/tmpdqvlkqv_/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+./deploy.sh: line 234: /etc/apache2/sites-available/laravel.conf: Permission denied
+ERROR: Site laravel does not exist!
+ERROR: Module php8.2 does not exist!
+gpg: keybox '/tmp/tmp1oihz4zd/pubring.gpg' created
+gpg: /tmp/tmp1oihz4zd/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+E: The repository 'http://ppa.launchpad.net/ondrej/php/ubuntu noble Release' does not have a Release file.
+Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable apache2
+gpg: keybox '/tmp/tmp78_chul5/pubring.gpg' created
+gpg: /tmp/tmp78_chul5/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+./deploy.sh: line 234: /etc/apache2/sites-available/laravel.conf: Permission denied
+ERROR: Site laravel does not exist!
+ERROR: Module php8.2 does not exist!
+Job for apache2.service failed.
+See "systemctl status apache2.service" and "journalctl -xe" for details.
+gpg: keybox '/tmp/tmpsceapm3q/pubring.gpg' created
+gpg: /tmp/tmpsceapm3q/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+E: The repository 'http://ppa.launchpad.net/ondrej/php/ubuntu noble Release' does not have a Release file.
+Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable apache2
+gpg: keybox '/tmp/tmpd9t71kql/pubring.gpg' created
+gpg: /tmp/tmpd9t71kql/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+./deploy.sh: line 234: /etc/apache2/sites-available/laravel.conf: Permission denied
+ERROR: Site laravel does not exist!
+ERROR: Module php8.2 does not exist!
+Job for apache2.service failed.
+See "systemctl status apache2.service" and "journalctl -xe" for details.
+gpg: keybox '/tmp/tmpq3xbu_ru/pubring.gpg' created
+gpg: /tmp/tmpq3xbu_ru/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+E: The repository 'http://ppa.launchpad.net/ondrej/php/ubuntu noble Release' does not have a Release file.
+Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable apache2
+gpg: keybox '/tmp/tmp2puhny6l/pubring.gpg' created
+gpg: /tmp/tmp2puhny6l/trustdb.gpg: trustdb created
+gpg: key 4F4EA0AAE5267A6C: public key "Launchpad PPA for Ondřej Surý" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+ERROR: Module php8.2 does not exist!
+Job for apache2.service failed.
+See "systemctl status apache2.service" and "journalctl -xe" for details.
