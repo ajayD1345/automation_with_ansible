@@ -1,1 +1,24 @@
-v
+---
+- name: Execute deployment script
+  hosts: Slave
+  become: yes
+
+  tasks:
+    - name: Copy deployment script
+      copy:
+        src: ./deploy.sh
+        dest: /tmp/deploy.sh
+        mode: 0755
+
+    - name: Execute deployment script
+      shell: /tmp/deploy.sh >> /vagrant/ansible.log 2>> /vagrant/ansible-error.log
+
+    - name: Ensure correct permissions for /vagrant directory
+      file:
+        path: /vagrant
+        state: directory
+        mode: 0755
+      when: not ansible_check_mode
+ 
+
+
