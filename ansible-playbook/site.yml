@@ -1,24 +1,285 @@
 ---
 - name: Execute deployment script
-  hosts: Slave
+  hosts: all
   become: yes
 
   tasks:
-    - name: Copy deployment script
-      copy:
-        src: ./deploy.sh
-        dest: /tmp/deploy.sh
-        mode: 0755
+    - name: Update package cache
+      apt:
+        update_cache: yes
+      when: ansible_os_family == "Debian"
 
-    - name: Execute deployment script
-      shell: /tmp/deploy.sh >> /vagrant/ansible.log 2>> /vagrant/ansible-error.log
+    - name: Upgrade all packages
+      apt:
+        upgrade: yes
+      when: ansible_os_family == "Debian"
 
-    - name: Ensure correct permissions for /vagrant directory
+    - name: Update package cache
+      yum:
+        name: '*'
+        state: latest
+      when: ansible_os_family == "RedHat"
+
+    - name: Upgrade all packages
+      yum:
+        name: '*'
+        state: latest
+      when: ansible_os_family == "RedHat"
+
+- name: Instaling lamp stack (apache, mysql, php) for "Debian"
+  hosts: debian
+  become: yes
+
+  tasks:
+    - name: Install Apache, PHP, (Debian)
+      apt:
+        name:
+          - apache2
+          - php
+          - php-cli
+          - php-mysql
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Install MySQL server
+      apt:
+        name: mysql-server
+        state: present
+
+    - name: Start MySQL service
+      service:
+        name: mysql
+        state: started
+        enabled: yes
+
+    - name: Install Python3
+      apt:
+        name: python3
+        state: present
+
+    - name: Install pip3
+      apt:
+        name: python3-pip
+        state: present
+
+    - name: Install python3-dev
+      apt:
+        name: python3-dev
+        state: present
+
+    - name: Install default-libmysqlclient-dev
+      apt:
+        name: default-libmysqlclient-dev
+        state: present
+
+    - name: Install pkg-config
+      apt:
+        name: pkg-config
+        state: present
+
+    - name: Install MySQL Python module
+      pip:
+        name: mysqlclient
+        state: present
+        executable: pip3
+
+    - name: Generate a random password
+      set_fact:
+        mysql_root_password: "{{ lookup('password', '/dev/null length=16 chars=ascii_letters,digits,special_characters') }}"
+      no_log: true
+      tags: [generate_password]
+
+- name: Disallow remote root login
+  hosts: debian
+  become: yes
+  tasks:
+    - name: Modify MySQL configuration file to disallow remote root login
+      lineinfile:
+        path: /etc/mysql/mysql.conf.d/mysqld.cnf
+        regexp: '^bind-address.*'
+        line: 'bind-address = 127.0.0.1'
+        state: present
+
+    - name: Set MySQL root password
+      mysql_user:
+        name: root
+        password: "{{ mysql_root_password }}"
+        host: debian
+        login_user: root
+        login_password: ''
+        state: present
+
+    - name: Restart MySQL service
+      service:
+        name: mysql
+        state: restarted
+
+    - name: installing git for "Debian"
+      tags: git
+      apt:
+        name:
+          - git
+        state: latest
+      when: ansible_distribution == "Debian"
+
+    - name: Install Composer
+      get_url:
+        url: https://getcomposer.org/installer
+        dest: /tmp/install_composer.php
+
+    - name: Run Composer installer
+      command: php /tmp/install_composer.php --install-dir=/usr/local/bin --filename=composer
+
+- name: Get server IP address
+  hosts: debian
+  become: no
+  tasks:
+    - name: Retrieve server IP address
+      shell: "ip addr show eth1 | awk '/inet / {print $2}' | cut -d/ -f1"
+      register: server_ip_output
+
+    - set_fact:
+        server_ip: "{{ server_ip_output.stdout }}"
+
+
+- name: Create Apache configuration file for Laravel
+  hosts: debian
+  become: yes
+  vars:
+    server_admin_email: "hamedayojide58@gmail.com"  # Update with your server admin email
+  tasks:
+    - name: Create Apache configuration file
+      shell: |
+        echo "========== Creating a new Apache configuration file for Laravel =========="
+        cat > /etc/apache2/sites-available/laravel.conf <<EOL
+        <VirtualHost *:80>
+            ServerAdmin {{ server_admin_email }}
+            ServerName {{ server_ip }}
+            DocumentRoot /var/www/html/laravel/public
+
+            <Directory /var/www/html/laravel>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Require all granted
+            </Directory>
+
+        </VirtualHost>
+        EOL
+
+
+- name: Disable the default Apache configuration file
+  hosts: debian
+  become: yes
+  tasks:
+    - name: Disable default Apache configuration file
+      command: a2dissite 000-default.conf
+
+- name: Enable the new Laravel configuration file
+  hosts: debian
+  become: yes
+  tasks:
+    - name: Enable Apache rewrite module
+      command: a2enmod rewrite
+
+    - name: Enable new Laravel configuration file
+      command: a2ensite laravel.conf
+
+    - name: Restart Apache service
+      service:
+         name: apache2
+         state: restarted
+
+- name: Clone the Laravel repository from GitHub
+  hosts: debian
+  become: yes
+  vars:
+    laravel_repo_url: "https://github.com/laravel/laravel.git"
+    destination_dir: "/var/www/html/"  # Adjust the destination directory as needed
+
+  tasks:
+    - name: Cloning the Laravel repository
+      git:
+        repo: "{{ laravel_repo_url }}"
+        dest: "{{ destination_dir }}"
+        update: yes  # This will update the repository if it already exists
+
+- name: Install and set up Laravel application
+  hosts: debian
+  tasks:
+    - name: Navigate to the Laravel application directory
+      command: cd /var/www/html
+      args:
+        chdir: /var/www/html
+      ignore_errors: yes
+
+    - name: Install Laravel application dependencies
+      command: composer install --no-interaction --optimize-autoloader --no-dev
+      args:
+        chdir: /var/www/html
+
+    - name: Update Laravel application dependencies
+      command: composer update --no-interaction --optimize-autoloader --no-dev
+      args:
+        chdir: /var/www/html
+
+    - name: Set Laravel permissions
       file:
-        path: /vagrant
-        state: directory
-        mode: 0755
-      when: not ansible_check_mode
- 
+        path: "{{ item }}"
+        owner: www-data
+        group: www-data
+        mode: "0755"
+      loop:
+        - "/var/www/html"
+        - "/var/www/html/storage"
+        - "/var/www/html/bootstrap/cache"
 
 
+- name: Instaling lamp stack (httpd, mariadb, php) for "RedHat"
+  hosts: centos
+  become: yes
+
+  tasks:
+     - name: install Apache HTTP server and PHP for centos
+       tags: apache,centos,http
+       yum:
+         name:
+           - httpd
+           - php
+         state: latest
+       when: ansible_distribution == "RedHat"
+
+     - name: Ensure Apache HTTP server is enabled and started if not enabled
+       service:
+         name: httpd
+         state: started
+         enabled: yes
+       when: ansible_distribution == "RedHat"
+
+
+
+
+
+
+
+
+
+
+
+   # - name: Install Apache, PHP, Composer (CentOS)
+    #  yum:
+     #   name:
+      #    - httpd
+       #   - php
+        #  - php-cli
+         # - php-mysql
+         # - composer
+      #  state: present
+     # when: ansible_os_family == "RedHat"
+
+   # - name: Ensure Apache HTTP server is enabled and started
+    #  service:
+     #   name: 
+      #    - apache2   # for Debian
+       #   - httpd     # for CentOS
+       # state: started
+       # enabled: yes

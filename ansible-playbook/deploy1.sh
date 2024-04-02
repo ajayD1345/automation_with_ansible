@@ -69,8 +69,6 @@ fi
 
 # Configure PHP
 echo "Configuring PHP"
-if [ -f "/etc/php/8.2/apache2/php.ini" ]; then
-    sudo sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php/8.2/apache2/php.ini
 elif [ -f "/etc/php.ini" ]; then
     sudo sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php.ini
 fi
@@ -78,19 +76,15 @@ fi
 # Restart Apache server
 echo "Restarting Apache server"
 if command_exists systemctl; then
-    sudo systemctl restart apache2 || sudo systemctl restart httpd
+    sudo systemctl restart httpd
 elif command_exists service; then
-    sudo service apache2 restart || sudo service httpd restart
+    sudo service httpd restart
 fi
 
 # Install MySQL Server
 echo "Installing MySQL Server"
-if command_exists apt-get; then
-    sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $mysql_root_password"
-    sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $mysql_root_password"
-    sudo apt-get install -y default-mysql-server
-elif command_exists yum; then
-    sudo yum install -y mysql-server
+if command_exists yum; then
+    sudo yum install -y mariadb-server
     if command_exists systemctl; then
         sudo systemctl start mysqld
         sudo systemctl enable mysqld
@@ -106,9 +100,7 @@ echo "MySQL root password: $mysql_root_password"
 
 # Disallow remote root login
 echo "Disallowing remote root login"
-if [ -f "/etc/mysql/mysql.conf.d/mysqld.cnf" ]; then
-    sudo sed -i "s/.*bind-address.*/bind-address = 127.0.0.1/" /etc/mysql/mysql.conf.d/mysqld.cnf
-elif [ -f "/etc/my.cnf" ]; then
+if [ -f "/etc/my.cnf" ]; then
     sudo sed -i 's/.*bind-address.*/bind-address = 127.0.0.1/' /etc/my.cnf
 fi
 
@@ -119,9 +111,9 @@ sudo mysql -uroot -p"$mysql_root_password" -e "DROP DATABASE IF EXISTS test;" ||
 # Restart Apache web server
 echo "Restarting Apache web server"
 if command_exists systemctl; then
-    sudo systemctl restart apache2 || sudo systemctl restart httpd
+    sudo systemctl restart httpd
 elif command_exists service; then
-    sudo service apache2 restart || sudo service httpd restart
+    sudo service httpd restart
 fi
 
 # End logging the script

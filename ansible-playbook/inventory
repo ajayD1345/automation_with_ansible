@@ -1,8 +1,7 @@
-[Master]
-vagrant@192.168.8.134
-
-[Slave]
+[debian]
+Master ansible_host=192.168.8.134 ansible_user=vagrant
 ubuntu-slave ansible_host=192.168.8.135 ansible_user=vagrant
+[centos]
 centos-slave ansible_host=192.168.8.136 ansible_user=vagrant
 
  

@@ -37,62 +37,45 @@ if [ -x "$(command -v apt-get)" ]; then
     sudo apt-get upgrade -y
 fi
 
-# for centos
-if [ -x "$(command -v yum)" ]; then
-    sudo yum install -y epel-release
-    sudo yum install -y yum-utils
-    sudo yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-    sudo yum-config-manager --enable remi-php82
-    sudo yum update -y
-fi
 # Install and setup AMP (Apache, MySQL, PHP) and other packages
 
 # Install Apache
 echo "Installing Apache"
 if [ -x "$(command -v apt-get)" ]; then
     sudo apt-get install -y apache2
-elif [ -x "$(command -v yum)" ]; then
-    sudo yum install -y httpd
 fi
 
 # Start and enable Apache
 echo "Enabling Apache services"
 if [ -x "/usr/bin/systemctl" ]; then
-    sudo systemctl start apache2 || sudo systemctl start httpd
-    sudo systemctl enable apache2 || sudo systemctl enable httpd
+    sudo systemctl start apache2
+    sudo systemctl enable apache2
 fi
 
 # Install gnupg to handle GPG keys
 sudo apt-get install -y gnupg
 
-# for centos
-sudo yum install -y gnupg
 
 # Update the PHP repository URL to a valid one for your system
 sudo add-apt-repository -y ppa:ondrej/php
-suo add-yum-repository -y ppa:ondrej/php
 
 # Install PHP
 echo "Installing PHP"
 if [ -x "$(command -v apt-get)" ]; then
 # Install PHP and necessary extensions for Debian/Ubuntu
 sudo apt-get install  php8.2 libapache2-mod-php8.2 php8.2-common php8.2-mysql php8.2-gmp php8.2-curl php8.2-intl php8.2-mbstring php8.2-xmlrpc php8.2-gd php8.2-xml php8.2-cli php8.2-zip php8.2-tokenizer php8.2-bcmath php8.2-soap php8.2-imap unzip zip
-elif [ -x "$(command -v yum)" ]; then
-    sudo yum install -y php php-common php-mysqlnd php-gmp php-curl php-intl php-mbstring php-json php-xml
 fi
 
 # Configure PHP
 echo "Configuring PHP"
 if [ -f "/etc/php/8.2/apache2/php.ini" ]; then
     sudo sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php/8.2/apache2/php.ini
-elif [ -f "/etc/php.ini" ]; then
-    sudo sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php.ini
 fi
 
 # Restart Apache server
 echo "Restarting Apache server"
 if [ -x "/usr/bin/systemctl" ]; then
-    sudo systemctl restart apache2 || sudo systemctl restart httpd
+    sudo systemctl restart apache2
 fi
 
 # Generate a random secure password for MySQL root user
@@ -106,20 +89,6 @@ if [ -x "$(command -v apt-get)" ]; then
     sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $mysql_root_password"
     sudo apt-get install default-mysql-server
     sudo apt-get install -y mysql-server
-elif [ -x "$(command -v yum)" ]; then
- sudo yum install -y mariadb-server
-    sudo systemctl start mariadb
-    sudo systemctl enable mariadb
-    sudo mysql_secure_installation <<EOF
-
-y
-$mysql_root_password
-$mysql_root_password
-y
-y
-y
-y
-EOF
 echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '$mysql_root_password';" | sudo mysql
 fi
 
@@ -130,8 +99,6 @@ echo "MySQL root password: $mysql_root_password"
 echo "Disallowing remote root login"
 if [ -f "/etc/mysql/mysql.conf.d/mysqld.cnf" ]; then
     sudo sed -i "s/.*bind-address.*/bind-address = 127.0.0.1/" /etc/mysql/mysql.conf.d/mysqld.cnf
-elif [ -f "/etc/my.cnf" ]; then
-    sudo sed -i 's/.*bind-address.*/bind-address = 127.0.0.1/' /etc/my.cnf
 fi
 
 # Remove the test database
@@ -141,7 +108,7 @@ sudo mysql -uroot -p"$mysql_root_password" -e "DROP DATABASE IF EXISTS test;" ||
 # Restart Apache web server
 echo "Restarting Apache web server"
 if [ -x "/usr/bin/systemctl" ]; then
-    sudo systemctl restart apache2 || sudo systemctl restart httpd
+    sudo systemctl restart apache2 
 fi
 
 # Create a new Apache configuration file for Laravel
@@ -162,46 +129,27 @@ sudo tee /etc/apache2/sites-available/laravel.conf > /dev/null <<EOL
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 EOL
-# for centos
-sudo tee /etc/httpd/conf.d/laravel.conf > /dev/null <<EOL
-<VirtualHost *:80>
-    ServerAdmin $server_admin_email
-    ServerName $server_ip
-    DocumentRoot /var/www/html/laravel/public
 
-    <Directory /var/www/html/laravel>
-        Options -Indexes +FollowSymLinks +MultiViews
-        AllowOverride All
-        Require all granted
-    </Directory>
-
-    ErrorLog /var/log/httpd/error.log
-    CustomLog /var/log/httpd/access.log combined
-</VirtualHost>
-EOL
 # Restart Apache web server
 echo " Restarting Apache web server "
 sudo systemctl restart apache2
-sudo systemctl restart httpd
 
 # Disable the default Apache configuration file
 echo " Disabling the default Apache configuration file "
 sudo a2dissite 000-default.conf
-sudo mv /etc/httpd/conf.d/00-default.conf /etc/httpd/conf.d/00-default.conf.disabled
+
 # Restart Apache web server
 echo " Restarting Apache web server "
 sudo systemctl restart apache2
-sudo systemctl restart httpd
+
 # Enable the new Laravel configuration file
 echo " Enabling the new Laravel configuration file "
 sudo a2enmod rewrite
 sudo a2ensite laravel.conf
-# for centos
-sudo cp /var/www/html/laravel/public/laravel.conf /etc/httpd/conf.d/
+
 # Restart Apache web server
 echo " Restarting Apache web server "
 sudo systemctl restart apache2
-sudo systemctl restart httpd
 
 # Enable the PHP module in Apache
 echo " Enabling the PHP module in Apache "
