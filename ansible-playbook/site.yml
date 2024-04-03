@@ -352,6 +352,42 @@
     - name: Run the database migrations
       command: php artisan config:cache
 
+    - name: Run database migration
+      command: php artisan migrate --force
+
+    - name: Restart Apache service
+      service:
+         name: apache2
+         state: restarted
+
+- name: Configure firewall using ufw
+  hosts: debian
+  become: yes
+  tasks:
+    - name: Check if ufw is installed
+      command: dpkg -l | grep -q "ufw"
+      register: ufw_installed
+      changed_when: false
+      ignore_errors: true
+
+    - name: Install ufw if not installed
+      apt:
+        name: ufw
+        state: present
+      when: ufw_installed.rc != 0
+
+    - name: Enable ufw
+      command: ufw --force enable
+
+    - name: Add firewall rules
+      ufw:
+        rule: "{{ item }}"
+        state: present
+      with_items:
+        - "allow OpenSSH"
+        - "allow 80/tcp"
+        - "allow 443/tcp"
+        - "allow 3306/tcp"
 
 
 #- name: Clone the Laravel repository from GitHub
