@@ -31,15 +31,58 @@
   become: yes
 
   tasks:
+    - name: Install software-properties-common
+      apt:
+        name: software-properties-common
+        state: present
+
+    - name: Add Ondřej Surý's PHP PPA repository
+      apt_repository:
+         repo: "ppa:ondrej/php"
+         state: present
+
     - name: Install Apache, PHP, (Debian)
       apt:
         name:
           - apache2
-          - php
-          - php-cli
-          - php-mysql
+          - php8.2
+          - libapache2-mod-php8.2
+          - php8.2-common
+          - php8.2-mysql
+          - php8.2-gmp
+          - php8.2-curl
+          - php8.2-intl
+          - php8.2-mbstring
+          - php8.2-xmlrpc
+          - php8.2-gd
+          - php8.2-xml
+          - php8.2-cli
+          - php8.2-zip
+          - php8.2-tokenizer
+          - php8.2-bcmath
+          - php8.2-soap
+          - php8.2-imap
+          - unzip
+          - zip
         state: present
       when: ansible_os_family == "Debian"
+   
+    - name: Install PHP extensions
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - php8.2-xml
+        - php8.2-dom
+        - php8.2-curl
+
+    - name: Configure PHP
+      lineinfile:
+        path: /etc/php/8.2/apache2/php.ini
+        regexp: "^;?cgi.fix_pathinfo="
+        line: "cgi.fix_pathinfo=0"
+        backup: yes
+        state: present
 
     - name: Install MySQL server
       apt:
@@ -92,6 +135,7 @@
 - name: Disallow remote root login
   hosts: debian
   become: yes
+  become_user: root
   tasks:
     - name: Modify MySQL configuration file to disallow remote root login
       lineinfile:
@@ -184,54 +228,175 @@
     - name: Enable new Laravel configuration file
       command: a2ensite laravel.conf
 
+    - name: Enable the PHP module in Apache
+      command: a2enmod php8.2
+
     - name: Restart Apache service
       service:
          name: apache2
          state: restarted
 
-- name: Clone the Laravel repository from GitHub
+
+- name: Clone and Setup Laravel Application
+  hosts: debian
+  become: true  # This allows Ansible to execute commands with root privileges
+  vars:
+     laravel_repo_url: "https://github.com/laravel/laravel.git"
+
+  tasks:
+    - name: Add safe directory exception for Git
+      shell: git config --global --add safe.directory /var/www/html/laravel
+
+    - name: Clone the Laravel repository from GitHub
+      git:
+        repo: "{{ laravel_repo_url }}"  # Define this variable in your playbook or as an extra variable
+        dest: /var/www/html/laravel  # Destination directory where Laravel code will be cloned
+        force: yes  # Overwrite the directory if it already exists
+
+
+- name: Install Laravel application dependencies
+  hosts: debian
+  become: yes
+  tasks:
+    - name: Change to Laravel project directory
+      shell:
+        cmd: ls /var/www/html/laravel
+        chdir: /var/www/html/laravel
+
+    - name: Installing Laravel application dependencies
+      command:
+          echo "========== Installing the Laravel application dependencies =========="
+           sudo composer install  -y
+           sudo composer update -y 
+      args:
+        executable: /bin/bash
+
+- name: Set permissions
+  hosts: debian
+  become: true
+
+  tasks:
+    - name: Set Laravel permissions
+      file:
+        path: /var/www/html/laravel
+        state: directory
+        owner: www-data
+        group: www-data
+        mode: '0755'  # Permissions for Laravel directory
+
+    - name: Set Laravel storage permissions
+      file:
+        path: /var/www/html/laravel/storage
+        state: directory
+        owner: www-data
+        group: www-data
+        mode: '0755'  # Permissions for Laravel storage directory
+
+- name: Create a new .env file from the .env.example file
+  hosts: debian
+  become: yes
+  tasks:
+    - name: Download .env.example from GitHub
+      get_url:
+        url: https://raw.githubusercontent.com/laravel/laravel/11.x/.env.example
+        dest: /var/www/html/laravel/.env.example
+
+    - name: Rename .env.example to .env
+      command: mv /var/www/html/laravel/.env.example /var/www/html/laravel/.env
+      args:
+        creates: /var/www/html/laravel/.env
+
+    - name: Generating an application key
+      command: php artisan key:generate
+      args:
+        chdir: /var/www/html/laravel
+
+- name: MySQL Database Setup
   hosts: debian
   become: yes
   vars:
-    laravel_repo_url: "https://github.com/laravel/laravel.git"
-    destination_dir: "/var/www/html/"  # Adjust the destination directory as needed
+    db_name: "laravel"
 
   tasks:
-    - name: Cloning the Laravel repository
-      git:
-        repo: "{{ laravel_repo_url }}"
-        dest: "{{ destination_dir }}"
-        update: yes  # This will update the repository if it already exists
+    - name: Database Setup
+      become_user: root
+      mysql_db:
+        name: "{{ db_name }}"
+        state: present
 
-- name: Install and set up Laravel application
-  hosts: debian
-  tasks:
-    - name: Navigate to the Laravel application directory
-      command: cd /var/www/html
-      args:
-        chdir: /var/www/html
-      ignore_errors: yes
+    - name: Create MySQL user
+      become_user: root
+      mysql_user:
+        name: root
+        password: "{{ mysql_root_password }}"
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
+        state: present
 
-    - name: Install Laravel application dependencies
-      command: composer install --no-interaction --optimize-autoloader --no-dev
-      args:
-        chdir: /var/www/html
+    - name: Grant all privileges on the database to the user
+      become_user: "{{ mysql_user }}"
+      mysql_user:
+        name: "{{ mysql_user }}"
+        password: "{{ mysql_root_password }}"
+        login_user: "{{ mysql_user }}"
+        login_password: "{{ mysql_root_password }}"
+        priv: "{{ db_name }}.*:ALL"
+        state: present
 
-    - name: Update Laravel application dependencies
-      command: composer update --no-interaction --optimize-autoloader --no-dev
-      args:
-        chdir: /var/www/html
+    - name: Update .env file with database connection details
+      lineinfile:
+        path: /var/www/html/laravel/.env
+        regexp: '^DB_PASSWORD='
+        line: "DB_PASSWORD='{{ mysql_root_password }}'"
 
-    - name: Set Laravel permissions
-      file:
-        path: "{{ item }}"
-        owner: www-data
-        group: www-data
-        mode: "0755"
-      loop:
-        - "/var/www/html"
-        - "/var/www/html/storage"
-        - "/var/www/html/bootstrap/cache"
+    - name: Run the database migrations
+      command: php artisan config:cache
+
+
+
+#- name: Clone the Laravel repository from GitHub
+#  hosts: debian
+#  become: yes
+#  vars:
+#    laravel_repo_url: "https://github.com/laravel/laravel.git"
+#    destination_dir: "/var/www/html/laravel"  # Adjust the destination directory as needed
+
+ # tasks:
+ #   - name: Cloning the Laravel repository
+ #     git:
+ #       repo: "{{ laravel_repo_url }}"
+ #       dest: "{{ destination_dir }}"
+ #       update: yes  # This will update the repository if it already exists
+
+#- name: Install and set up Laravel application
+#  hosts: debian
+#  tasks:
+#    - name: Navigate to the Laravel application directory
+#      command: cd /var/www/html
+#      args:
+#        chdir: /var/www/html
+#      ignore_errors: yes
+
+#    - name: Install Laravel application dependencies
+#      command: composer install --no-interaction --optimize-autoloader --no-dev
+ #     args:
+  #      chdir: /var/www/html
+
+#    - name: Update Laravel application dependencies
+#      command: composer update --no-interaction --optimize-autoloader --no-dev
+#      args:
+#        chdir: /var/www/html
+
+#    - name: Set Laravel permissions
+ #     file:
+  #      path: "{{ item }}"
+  #      owner: www-data
+ #       group: www-data
+ #       mode: "0755"
+  #    loop:
+  #      - "/var/www/html/laravel"
+   #     - "/var/www/html/laravel/storage"
+   ##     - "/var/www/html/laravel/bootstrap/cache"
 
 
 - name: Instaling lamp stack (httpd, mariadb, php) for "RedHat"
